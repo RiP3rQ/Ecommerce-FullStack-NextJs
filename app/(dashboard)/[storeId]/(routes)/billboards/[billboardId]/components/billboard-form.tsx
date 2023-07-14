@@ -21,7 +21,6 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-modal";
-import { ApiAlert } from "@/components/ui/api-alert";
 import { useOrigin } from "@/hooks/use-origin";
 import { Billboard } from "@prisma/client";
 import ImageUpload from "@/components/ui/image-upload";
@@ -76,7 +75,7 @@ export const BillboardForm: React.FC<BillboardPageProps> = ({
         await axios.post(`/api/${params.storeId}/billboards`, data);
       }
       router.refresh();
-      router.push(`/${params.storeId}/billboards}`);
+      router.push(`/${params.storeId}/billboards`);
       toast.success(toastMessage);
     } catch (error) {
       toast.error("Something went wrong, please try again later.");
